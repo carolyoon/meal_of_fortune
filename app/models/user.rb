@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :favorites
+  has_many :favorited_restaurants, through: :favorites, source: 'restaurant'
 
   include BCrypt 
 
