@@ -18,20 +18,6 @@ class YelpSearchAdapter
     retrieve_ids(businesses)
   end 
 
-  # def self.parse(restaurant)
-  #   restaurant_details = {
-  #     name: restaurant["name"],
-  #     image_url: restaurant["image_url"],
-  #     url: restaurant["url"],
-  #     address: restaurant["location"]["address1"],
-  #     hours: 
-  #     rating:
-  #     price: 
-  #   }
-
-
-  # end 
-
   private 
 
   def self.retrieve_ids(businesses)
