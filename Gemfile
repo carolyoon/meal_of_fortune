@@ -17,6 +17,7 @@ gem 'bcrypt'
 gem 'httparty'
 
 gem 'dotenv'
+gem 'awesome_print'
 
 
 group :test do

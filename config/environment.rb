@@ -18,6 +18,8 @@ require 'logger'
 require 'sinatra'
 require "sinatra/reloader" if development?
 
+require 'awesome_print'
+
 require 'erb'
 require 'pry-byebug'
 require 'bcrypt'
