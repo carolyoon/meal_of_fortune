@@ -1,0 +1,4 @@
+<h1> <%= @cuisine.name %> FOOD NEAR YOU! </h1>
+<% @restaurants.each do |restaurant| %>
+  <p><%= restaurant.name %></p>
+<% end %>
