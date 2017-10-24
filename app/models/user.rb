@@ -2,18 +2,18 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :favorited_restaurants, through: :favorites, source: 'restaurant'
 
-  include BCrypt 
+  include BCrypt
 
   validates :username, presence: true, uniqueness: true
 
   def password
-    @password = Password.create(new_password)
-  end 
+    @password = Password.new(password_hash)
+  end
 
   def password=(new_password)
     @password = Password.create(new_password)
     self.password_hash = @password
-  end 
+  end
 
   def self.authenticate(username, password)
     @user= User.find_by(username: username)
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       @user
     else
       nil
-    end 
-  end 
+    end
+  end
 end
 
