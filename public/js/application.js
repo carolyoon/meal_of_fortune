@@ -1,22 +1,15 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
-
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
   var wheel = document.querySelector("#wheel"),
       button = document.querySelector("#button"),
-
-    // Initialise a random number variable. As zero.
-      rando = 0;
+      rando = 0; // Keep track of how many degrees to rotate
 
   // When we click the button...
+  // Takes in a random number from 0 to 360 from the response json
   var spin_wheel = function (degrees) {
 
-    // Generate a random number that'll determine how many degrees the wheel spins.
-    // We want it to spin 8 times (2880 degrees) and then land somewhere, so we'll add between 0 and 360 degrees to that.
+    // We want it to spin 4 times (1440 degrees) and then land somewhere, so we add 1440 to our degrees
     // We add this to the already-created "rando" variable so that we can spin the wheel multiple times.
-    rando += (degrees) + 360;
+    rando += (degrees) + 1440;
 
     // And spin the wheel to the random position we just generated!
     // Gotta cover ourselves with vendor prefixes.
@@ -25,34 +18,33 @@ $(document).ready(function() {
     wheel.style.msTransform = "rotate(" + rando + "deg)";
     wheel.style.transform = "rotate(" + rando + "deg)";
   }
-  // button.addEventListener("click", spin_wheel, false);
+
   $("#spin").on("submit", function(e) {
     e.preventDefault();
     var form = $(this)
     var url = form.attr('action')
     var method = form.attr('method')
-    console.log("hey");
     $.ajax({
       url: url,
       type: method
     })
     .done(function(response) {
-      spin_wheel(response.degrees);
+      spin_wheel(response.degrees)
+      var link = `
+        <a href="/search?cuisine=${response.cuisine}&location=${response.location}">Let's See What You Got!</a>
+        `
+      form.fadeOut(9500, function() {
+        form.html(link).fadeIn(1000);
+      });
     })
-    .fail(function() {
-      console.log("error");
+    .fail(function(error) {
+      $('.container').before(error.responseText);
     })
     .always(function() {
       console.log("complete");
     });
-
   });
 });
-
-
-var wheelListener = function() {
-
-}
 
 
 

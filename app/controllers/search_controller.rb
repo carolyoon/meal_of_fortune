@@ -8,12 +8,10 @@ end
 post '/search' do
   degrees = rand(360)
   @cuisine = Cuisine.spin_wheel(degrees)
-  p "*" * 100
-  p @cuisine
   @location = params[:location]
   if request.xhr?
     content_type :json
-    response = { degrees: degrees }.to_json
+    { degrees: degrees, location: @location, cuisine: @cuisine }.to_json
   else
     redirect "/search?cuisine=#{@cuisine}&location=#{@location}"
   end
