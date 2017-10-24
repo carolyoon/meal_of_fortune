@@ -1,6 +1,6 @@
 get '/search' do
   @cuisine = Cuisine.find_by(name: params[:cuisine])
-  ids = YelpSearchAdapter.search(params[:cuisine], params[:location])
+  ids = YelpSearchAdapter.search(@cuisine.yelp_search_term, params[:location])
   @restaurants = ids.map { |id| @cuisine.restaurants.find_or_create_by(YelpBusinessAdapter.search(id)) }
   erb :'searches/results'
 end
