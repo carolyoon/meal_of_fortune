@@ -21,3 +21,5 @@ end
 #search(params[:name], params[:location])
 
 # mealoffortune.com/search?cuisine=#{@cuisine}&location={@location}
+
+
