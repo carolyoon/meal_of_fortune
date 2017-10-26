@@ -30,7 +30,7 @@ body {
   max-width: 40px;
   height: auto;
   position: absolute;
-  top: 15%;
+  top: 16%;
   left: 48.5%;
   z-index: 2;
 }
@@ -291,4 +291,8 @@ body {
 #results
 {
   float: left;
+}
+
+#home-link {
+  float: right;
 }
