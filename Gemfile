@@ -18,7 +18,7 @@ gem 'httparty'
 
 gem 'dotenv'
 gem 'awesome_print'
-
+gem 'pry-byebug'
 
 group :test do
   gem 'shoulda-matchers'
@@ -30,5 +30,5 @@ end
 group :test, :development do
   gem 'factory_girl'
   gem 'faker'
-  gem 'pry-byebug'
 end
+
