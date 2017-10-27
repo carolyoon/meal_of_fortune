@@ -15,7 +15,6 @@ module YelpSearchAdapter
   def self.search(cuisine, location)
     businesses = self.get('', query: { categories: cuisine,
                           location: location })['businesses']
-    debugger
     retrieve_ids(businesses)
   end
 
