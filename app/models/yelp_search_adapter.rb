@@ -12,9 +12,9 @@ class YelpSearchAdapter
                  open_now: true,
                  term: "restaurants"
 
-  def self.search(cuisine, location)
+  def self.search(cuisine, coordinates)
     businesses = self.get('', query: { categories: cuisine,
-                          location: location })['businesses']
+                          latitude: coordinates["lat"], longitude: coordinates["lng"] })['businesses']
     retrieve_ids(businesses)
   end
 
