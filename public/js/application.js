@@ -19,14 +19,16 @@ $(document).ready(function() {
     wheel.style.transform = "rotate(" + rando + "deg)";
   }
 
-  $("#spin").on("submit", function(e) {
+  $("#search").on("submit", function(e) {
     e.preventDefault();
     var form = $(this)
     var url = form.attr('action')
     var method = form.attr('method')
+    var data = form.serialize();
     $.ajax({
       url: url,
-      type: method
+      type: method,
+      data: data
     })
     .done(function(response) {
       spin_wheel(response.degrees)
