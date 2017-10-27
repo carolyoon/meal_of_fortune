@@ -9,7 +9,7 @@ $(document).ready(function() {
 
     // We want it to spin 4 times (1440 degrees) and then land somewhere, so we add 1440 to our degrees
     // We add this to the already-created "rando" variable so that we can spin the wheel multiple times.
-    rando += (degrees) + 1371;
+    rando += (degrees) + 1508;
 
     // And spin the wheel to the random position we just generated!
     // Gotta cover ourselves with vendor prefixes.
