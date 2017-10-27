@@ -31,6 +31,7 @@ $(document).ready(function() {
       data: data
     })
     .done(function(response) {
+      console.log(response)
       spin_wheel(response.degrees)
       var link = `
         <a id="results-link" href="/search?cuisine=${response.cuisine}&location=${response.location}">Let's See What You Got!</a>
