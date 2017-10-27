@@ -1,6 +1,13 @@
-<a href="/users/new">Signup</a> | <a href="/sessions/new">Login</a>
+<% if logged_in? %>
+  <form action='/sessions' method='POST'>
+    <input type="hidden" name="_method">
+    <input type="submit" value="Logout">
+  </form>
+<% else %>
+  <a href="/users/new">Signup</a> | <a href="/sessions/new">Login</a>
+<% end %>
 
-<h1>Meal of Fortune</h1>
+<h1 id="game-name">Meal of Fortune</h1>
 
 <div class="container">
 

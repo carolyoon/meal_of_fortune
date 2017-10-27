@@ -33,7 +33,7 @@ $(document).ready(function() {
     .done(function(response) {
       spin_wheel(response.degrees)
       var link = `
-        <a href="/search?cuisine=${response.cuisine}&location=${response.location}">Let's See What You Got!</a>
+        <a id="results-link" href="/search?cuisine=${response.cuisine}&location=${response.location}">Let's See What You Got!</a>
         `
       form.fadeOut(9500, function() {
         form.html(link).fadeIn(1000);

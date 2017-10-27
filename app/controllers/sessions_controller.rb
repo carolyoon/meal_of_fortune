@@ -11,3 +11,8 @@ post '/sessions' do
     erb :'sessions/new'
   end
 end
+
+delete '/sessions' do
+  logout
+  redirect '/'
+end

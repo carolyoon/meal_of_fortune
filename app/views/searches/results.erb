@@ -1,5 +1,5 @@
 <h1> <%= @cuisine.name %> FOOD NEAR YOU! </h1>
 <% @restaurants.each do |restaurant| %>
-  <a href="/restaurant/<%= restaurant.id %>"><p><%= restaurant.name %></p></a>
+  <a href="/restaurants/<%= restaurant.id %>"><p><%= restaurant.name %></p></a>
   <img src="<%= restaurant.image_url %>">
 <% end %>
