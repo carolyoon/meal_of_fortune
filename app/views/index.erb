@@ -3,6 +3,7 @@
     <input type="hidden" name="_method">
     <input type="submit" value="Logout">
   </form>
+  <a href="/users/<%= current_user.id %>"><%= current_user.username %></a>
 <% else %>
   <a href="/users/new">Signup</a> | <a href="/sessions/new">Login</a>
 <% end %>
