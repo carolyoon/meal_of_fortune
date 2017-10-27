@@ -1,4 +1,15 @@
 <a href="<%= @restaurant.url %>"><h1><%= @restaurant.name %></h1></a>
-
-<img src="<%= @restaurant.image_url %>">
-
+<br>
+<img src="<%= @restaurant.image_url %>" class="img-rounded">
+<br><br>
+<div id="restaurant-details">
+  <p>Address:     <%= @restaurant.address %></p>
+  <p>Rating:      <%= @restaurant.rating %> / 5 stars</p>
+  <p>Price Range: <%= @restaurant.price %></p>
+  <br><br>
+</div>
+<% if logged_in? && !current_user.favorited_restaurants.include?(@restaurant) %>
+  <form action='/restaurants/<%= @restaurant.id %>/favorites' method="POST">
+    <input type="submit" value="Favorite this restaurant!">
+  </form>
+<% end %>

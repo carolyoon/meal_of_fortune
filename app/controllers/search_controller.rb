@@ -1,16 +1,12 @@
 get '/search' do
   @cuisine = Cuisine.find_by(name: params[:cuisine])
-  @coordinates = GooglePlacesAdapter.search_location(params[:location])
-  p "*" * 100
-  p @coordinates
-  ids = YelpSearchAdapter.search(@cuisine.yelp_search_term, @coordinates)
+  #@coordinates = GooglePlacesAdapter.search_location(params[:location])
+  ids = YelpSearchAdapter.search(@cuisine.yelp_search_term, params[:location])
   @restaurants = ids.map { |id| @cuisine.restaurants.find_or_create_by(YelpBusinessAdapter.search(id)) }
   erb :'searches/results'
 end
 
 post '/search' do
-  p "*" * 100
-  p params
   degrees = rand(360)
   @cuisine = Cuisine.spin_wheel(degrees)
   @location = params[:location]

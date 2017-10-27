@@ -19,19 +19,21 @@ $(document).ready(function() {
     wheel.style.transform = "rotate(" + rando + "deg)";
   }
 
-  $("#spin").on("submit", function(e) {
+  $("#search").on("submit", function(e) {
     e.preventDefault();
     var form = $(this)
     var url = form.attr('action')
     var method = form.attr('method')
+    var data = form.serialize();
     $.ajax({
       url: url,
-      type: method
+      type: method,
+      data: data
     })
     .done(function(response) {
       spin_wheel(response.degrees)
       var link = `
-        <a href="/search?cuisine=${response.cuisine}&location=${response.location}">Let's See What You Got!</a>
+        <a id="results-link" href="/search?cuisine=${response.cuisine}&location=${response.location}">Let's See What You Got!</a>
         `
       form.fadeOut(9500, function() {
         form.html(link).fadeIn(1000);

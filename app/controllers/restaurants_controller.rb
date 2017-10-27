@@ -1,4 +1,5 @@
-get '/restaurant/:id' do
+get '/restaurants/:id' do
   @restaurant = Restaurant.find(params[:id])
   erb :'searches/show'
 end
+
