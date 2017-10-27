@@ -1,11 +1,13 @@
-<a href="<%= @restaurant.url %>"><h1><%= @restaurant.name %></h1></a>
+<a href="<%= @restaurant.url %>"><h1 class="restaurant-name"><%= @restaurant.name %></h1></a>
 <br>
 <img src="<%= @restaurant.image_url %>" class="img-rounded">
-<br><br>
+<br><br><br><br><br>
 <div id="restaurant-details">
-  <p>Address:     <%= @restaurant.address %></p>
-  <p>Rating:      <%= @restaurant.rating %> / 5 stars</p>
-  <p>Price Range: <%= @restaurant.price %></p>
+  <p>ADDRESS:     <%= @restaurant.address %></p>
+  <br>
+  <p>RATING:      <%= @restaurant.rating %> / 5 stars</p>
+  <br>
+  <p>PRICE RANGE: <%= @restaurant.price %></p>
   <br><br>
 </div>
 <% if logged_in? && !current_user.favorited_restaurants.include?(@restaurant) %>

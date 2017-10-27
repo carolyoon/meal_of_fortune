@@ -1,9 +1,10 @@
-<h1>Welcome, <%= @user.username %>!</h1>
-
-<h2>Favorited Restaurants</h2>
+<h1 id="welcome">Welcome, <%= @user.username %>!</h1>
+<br>
+<h2 id="favorites">* Favorited Restaurants *</h2>
 
 <ul>
   <% @user.favorited_restaurants.each do |restaurant| %>
+  <br>
       <li>
         <a href="<%= restaurant.url %>"><%= restaurant.name %></a>
       </li>

@@ -1,0 +1,17 @@
+<div id="logout">
+
+  <% if logged_in? %>
+    <form action='/sessions' method='POST'>
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Logout">
+    </form>
+    <br>
+    <span id="login">
+      <a id="username-link" href="/users/<%= current_user.id %>"><%= current_user.username %> | </a>
+  <% else %>
+      <a href="/users/new">Signup</a> | <a href="/sessions/new">Login</a> |
+  <% end %>
+      <a id="home-link" href="/"> Home</a>
+    </span>
+
+</div>
