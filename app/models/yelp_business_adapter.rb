@@ -1,4 +1,4 @@
-class YelpBusinessAdapter
+module YelpBusinessAdapter
 
   include HTTParty
 
@@ -11,7 +11,7 @@ class YelpBusinessAdapter
     parse_business_data(response)
   end
 
-  private 
+  private
 
   def self.parse_business_data(response)
     business_details = {
@@ -22,7 +22,7 @@ class YelpBusinessAdapter
       rating: response["rating"],
       price: response["price"]
     }
-  end 
+  end
 
-end 
+end
 

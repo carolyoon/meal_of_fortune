@@ -1,4 +1,4 @@
-class YelpSearchAdapter
+module YelpSearchAdapter
 
   include HTTParty
 
@@ -23,7 +23,4 @@ class YelpSearchAdapter
   def self.retrieve_ids(businesses)
     businesses.map! { |business| business["id"] }
   end
-
-
-
 end
